@@ -1,5 +1,13 @@
-# animator 🌲
+<div align="center">
 
+# 🌲 animator
+
+*adivinhe o animal*
+
+![Python](https://img.shields.io/badge/python-3.8+-4a7060?style=flat&logo=python&logoColor=white)
+![HTML](https://img.shields.io/badge/frontend-html%2Fjs-8faa90?style=flat)
+
+</div>
 jogo estilo akinator focado em animais, com árvore avl, bfs e dfs implementados em python e interface web no navegador.
 
 ---
