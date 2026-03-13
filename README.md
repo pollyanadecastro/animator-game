@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🌲 animator
+# 🌲 ANIMATOR 🌲
 
 *adivinhe o animal*
 
