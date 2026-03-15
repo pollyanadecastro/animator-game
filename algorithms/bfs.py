@@ -1,7 +1,7 @@
 from collections import deque
 
 
-def visit(node):
+def visit(node): 
     if node.question:
         return node.question
     return node.answer
@@ -12,18 +12,24 @@ def bfs(root):
     if root is None:
         return []
 
-    queue = deque([root])
-    result = []
+    queue = deque([(root, [])])
+    results = []
 
     while queue:
 
-        node = queue.popleft()
-        result.append(visit(node))
+        node, path = queue.popleft()
 
-        if node.yes:
-            queue.append(node.yes)
+        new_path = path + [visit(node)]
 
-        if node.no:
-            queue.append(node.no)
+        if node.is_leaf():
+            results.append(" → ".join(new_path))
 
-    return result
+        else:
+            if node.yes:
+                queue.append((node.yes, new_path))
+
+            if node.no:
+                queue.append((node.no, new_path))
+
+    
+    return results
