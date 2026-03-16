@@ -4,7 +4,7 @@
 
 <svg width="400" height="80" xmlns="http://www.w3.org/2000/svg">
   <text x="50%" y="55" font-family="Georgia, serif" font-size="42" font-weight="400"
-    fill="#a8c4a0" text-anchor="middle" letter-spacing="6">animator</text>
+    fill="#a8c4a0" text-anchor="middle" letter-spacing="6">ANIMATOR</text>
 </svg>
 
 *jogo de adivinhação de animais com árvore avl, bfs e dfs*
