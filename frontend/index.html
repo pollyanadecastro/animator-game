@@ -1,47 +1,117 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Mini Akinator</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Animator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-<div class="orb"></div>
-<div class="stars" id="stars"></div>
-<div class="card">
-<div class="header">
-<div class="title">Mini Akinator</div>
-<div class="subtitle">Pense em um animal</div>
-</div>
-<div class="progress-wrap">
-<div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
-<div class="progress-label" id="step-label">11 candidatos</div>
-</div>
-<div class="question-area">
-<div class="question-text" id="question">Pronto para começar?</div>
-</div>
-<div class="btn-row" id="game-btns" class="hidden" style="display:none">
-<button class="btn btn-sim" onclick="answer(true)"><span>✓ Sim</span></button>
-<button class="btn btn-nao" onclick="answer(false)"><span>✗ Não</span></button>
-</div>
-<div class="btn-row" id="start-btns">
-<button class="btn btn-sim" onclick="startGame()"><span>Começar</span></button>
-</div>
-<div id="result-area" class="result hidden">
-<span class="result-icon">🔮</span>
-<div class="result-label">Minha resposta é</div>
-<div class="result-answer" id="result-text"></div>
-<div class="btn-row" style="margin-top:1.4rem">
-    <button class="btn btn-restart" onclick="restartGame()"><span>↺ Jogar novamente</span></button>
+<svg class="bg" viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b8cfc0"/>
+      <stop offset="60%" stop-color="#7a9e90"/>
+      <stop offset="100%" stop-color="#3a5a50"/>
+    </linearGradient>
+    <linearGradient id="fog" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8fb0a0" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#8fb0a0" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="900" fill="url(#sky)"/>
+  <polygon points="0,420 180,240 320,310 480,200 640,280 800,190 960,260 1100,210 1260,300 1400,240 1400,500 0,500" fill="#4a6e5e" opacity="0.5"/>
+  <polygon points="0,480 150,320 300,380 500,280 680,360 850,270 1000,340 1150,280 1300,360 1400,310 1400,560 0,560" fill="#3a5a4a" opacity="0.7"/>
+  <ellipse cx="700" cy="480" rx="60" ry="20" fill="#8ab0a8" opacity="0.5"/>
+  <ellipse cx="680" cy="500" rx="45" ry="15" fill="#8ab0a8" opacity="0.4"/>
+  <rect x="0" y="300" width="1400" height="200" fill="url(#fog)"/>
+  <rect x="0" y="380" width="1400" height="120" fill="#6a9080" opacity="0.18"/>
+  <g fill="#3a5a48" opacity="0.6">
+    <polygon points="300,520 320,420 340,520"/>
+    <polygon points="360,530 385,415 410,530"/>
+    <polygon points="420,515 445,410 470,515"/>
+    <polygon points="500,525 528,405 556,525"/>
+    <polygon points="840,520 865,410 890,520"/>
+    <polygon points="900,530 928,408 956,530"/>
+    <polygon points="980,515 1005,412 1030,515"/>
+    <polygon points="1050,525 1075,400 1100,525"/>
+  </g>
+  <g fill="#253830" opacity="0.85">
+    <polygon points="100,620 128,480 156,620"/>
+    <polygon points="170,630 202,475 234,630"/>
+    <polygon points="250,615 285,465 320,615"/>
+    <polygon points="580,620 614,462 648,620"/>
+    <polygon points="660,635 698,460 736,635"/>
+    <polygon points="750,618 784,458 818,618"/>
+    <polygon points="1100,625 1134,468 1168,625"/>
+    <polygon points="1200,615 1236,462 1272,615"/>
+    <polygon points="1300,630 1334,470 1368,630"/>
+  </g>
+  <g fill="#141e1a">
+    <polygon points="-20,900 40,580 100,900"/>
+    <polygon points="60,900 140,520 220,900"/>
+    <polygon points="180,900 270,540 360,900"/>
+    <polygon points="1040,900 1120,530 1200,900"/>
+    <polygon points="1180,900 1265,545 1350,900"/>
+    <polygon points="1320,900 1390,560 1460,900"/>
+    <rect x="38" y="700" width="6" height="200" fill="#0e1612"/>
+    <rect x="148" y="680" width="7" height="220" fill="#0e1612"/>
+    <rect x="268" y="700" width="7" height="200" fill="#0e1612"/>
+    <rect x="1118" y="690" width="7" height="210" fill="#0e1612"/>
+    <rect x="1262" y="700" width="7" height="200" fill="#0e1612"/>
+  </g>
+  <rect x="0" y="800" width="1400" height="100" fill="#0e1612"/>
+  <rect x="0" y="780" width="1400" height="60" fill="#141e1a" opacity="0.8"/>
+  <rect x="0" y="720" width="1400" height="100" fill="#3a5a48" opacity="0.15"/>
+  <g transform="translate(680,760)">
+    <ellipse cx="0" cy="-30" rx="14" ry="22" fill="#c02020"/>
+    <ellipse cx="0" cy="-54" rx="7" ry="7" fill="#b01818"/>
+    <polygon points="-14,-30 0,-62 14,-30" fill="#a01010"/>
+  </g>
+  <ellipse cx="1050" cy="330" rx="4" ry="18" fill="#8fb0a0" opacity="0.4"/>
+  <ellipse cx="1052" cy="318" rx="5" ry="12" fill="#8fb0a0" opacity="0.25"/>
+</svg>
+
+<div class="layout">
+  <div class="card">
+    <div class="header">
+      <div class="title">animator</div>
+      <div class="subtitle">pense em um animal</div>
     </div>
+    <div class="prog-wrap">
+      <div class="prog-bar"><div class="prog-fill" id="progress" style="width:0%"></div></div>
+      <div class="prog-lbl" id="step-label">11 candidatos</div>
+    </div>
+    <div class="q-area">
+      <div class="q-text" id="question">pronto para começar?</div>
+    </div>
+    <div class="btn-row hidden" id="game-btns">
+      <button class="btn btn-sim" onclick="answer(true)">✓ sim</button>
+      <button class="btn btn-nao" onclick="answer(false)">✗ não</button>
+    </div>
+    <div class="btn-row" id="start-btns">
+      <button class="btn btn-sim" onclick="startGame()">começar</button>
+    </div>
+    <div id="result-area" class="result hidden">
+      <span class="result-icon">🌲</span>
+      <div class="result-lbl">minha resposta é</div>
+      <div class="result-ans" id="result-text"></div>
+      <div class="btn-row" style="margin-top:1.2rem">
+        <button class="btn btn-rst" onclick="restartGame()">↺ jogar novamente</button>
+      </div>
+    </div>
+    <div class="trail hidden" id="trail">
+      <div class="trail-ttl">caminho percorrido</div>
+      <div class="trail-items" id="trail-items"></div>
+    </div>
+  </div>
+  <div class="sidebar">
+    <div class="side-title">candidatos</div>
+    <div id="animal-list"></div>
+  </div>
 </div>
-<div class="trail hidden" id="trail">
-    <div class="trail-title">Caminho percorrido</div>
-    <div class="trail-items" id="trail-items"></div>
-</div>
-</div>
+
 <script src="script.js"></script>
 </body>
 </html>
