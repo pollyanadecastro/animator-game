@@ -171,9 +171,9 @@ arquivo `data/zoo.csv` com 11 animais e 13 atributos binários:
 
 | pessoa | arquivos |
 |---|---|
-| pessoa 1 | `game/play.py`, `frontend/index.html`, `README.md` |
-| pessoa 2 | `tree/node.py`, `tree/avl.py`, `tree/build_tree.py`, `analysis/comparison.py`, `frontend/style.css` |
-| pessoa 3 | `algorithms/bfs.py`, `algorithms/dfs.py`, `extras/learning.py`, `frontend/script.js` |
+| pollyana | `game/play.py`, `frontend/index.html`, `README.md` |
+| lucas | `tree/node.py`, `tree/avl.py`, `tree/build_tree.py`, `analysis/comparison.py`, `frontend/style.css` |
+| david | `algorithms/bfs.py`, `algorithms/dfs.py`, `extras/learning.py`, `frontend/script.js` |
 
 ---
 
