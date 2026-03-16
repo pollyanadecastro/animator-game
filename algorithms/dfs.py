@@ -4,7 +4,7 @@ def visit(node):
     return node.answer
 
 
-def dfs(node, path=None, results=None):
+def dfs(node, path=None):
 
     if node is None:
         return []
@@ -12,16 +12,14 @@ def dfs(node, path=None, results=None):
     if path is None:
         path = []
 
-    if results is None:
-        results = []
-
     path = path + [visit(node)]
 
-    if node.is_leaf():
-        results.append(" → ".join(path))
-    else:
-        dfs(node.yes, path, results)
-        dfs(node.no, path, results)
+    if node.answer:
+        return [" → ".join(path)]
 
+    result = []
 
-    return results
+    result += dfs(node.yes, path)
+    result += dfs(node.no, path)
+
+    return result
