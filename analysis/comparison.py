@@ -19,10 +19,11 @@ def medir(func, root, repeticoes=3):
     return resultado, (total / repeticoes) * 1000
 
 
-def imprimir_tabela(dados):
+def imprimir_tabela(dados, altura, total_nos):
     sep = "-" * 72
     print("\n" + sep)
     print(f"{'Comparação: DFS vs BFS':^72}")
+    print(f"{'Altura da árvore: ' + str(altura) + '  |  Total de nós: ' + str(total_nos):^72}")
     print(sep)
     print(f"{'Algoritmo':<14} {'Itens retornados':>16} {'Tempo médio (ms)':>18}")
     print(sep)
@@ -68,7 +69,8 @@ def main():
         print("erro: árvore vazia. Verifique o caminho do zoo.csv.")
         return
 
-    print(f"Árvore construída. Raiz: {root}\n")
+    print(f"Árvore construída. Raiz: {root}")
+    print(f"Altura: {avl.get_height()}  |  Total de nós: {avl.count_nodes()}\n")
 
     visita_dfs, tempo_dfs = medir(dfs, root)
     visita_bfs, tempo_bfs = medir(bfs, root)
@@ -78,7 +80,7 @@ def main():
         {"nome": "BFS", "visita": visita_bfs, "nos": len(visita_bfs), "tempo": tempo_bfs},
     ]
 
-    imprimir_tabela(dados)
+    imprimir_tabela(dados, avl.get_height(), avl.count_nodes())
     responder_perguntas(dados)
 
 
