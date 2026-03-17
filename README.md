@@ -32,13 +32,12 @@ animator/
 ├── data/
 │   └── zoo.csv             # dataset com 11 animais e atributos binários
 ├── extras/
-│   └── learning.py         # módulo de aprendizado
+│   └── gui_main.py         # jogo rodando em python
+│   └── main.py        
 ├── frontend/
 │   ├── index.html          # estrutura da interface
 │   ├── style.css           # estilo visual
 │   └── script.js           # lógica do jogo (avl + interface)
-├── game/
-│   └── play.py             # ponto de entrada: roda comparação e exporta json
 ├── tree/
 │   ├── avl.py              # árvore avl com rotações e balanceamento
 │   ├── build_tree.py       # lê o csv e monta a avl
@@ -65,19 +64,7 @@ animator/
 git clone https://github.com/seu-usuario/animator.git
 cd animator
 ```
-
-### 2. backend (python)
-
-```bash
-python -m game.play
-```
-
-isso vai:
-1. construir a árvore avl a partir do `zoo.csv`
-2. rodar a comparação bfs vs dfs e imprimir as métricas no terminal
-3. exportar `frontend/animais.json` com os animais
-
-### 3. frontend (navegador)
+### 2. frontend (navegador)
 
 abra o arquivo `frontend/index.html` diretamente no navegador — não precisa de servidor.
 
@@ -170,7 +157,7 @@ arquivo `data/zoo.csv` com 11 animais e 13 atributos binários:
 
 | pessoa | arquivos |
 |---|---|
-| pollyana | `game/play.py`, `frontend/index.html`, `README.md` |
+| pollyana | `frontend/index.html`, `README.md` |
 | lucas | `tree/node.py`, `tree/avl.py`, `tree/build_tree.py`, `analysis/comparison.py`, `frontend/style.css` |
 | david | `algorithms/bfs.py`, `algorithms/dfs.py`, `extras/learning.py`, `frontend/script.js` |
 
