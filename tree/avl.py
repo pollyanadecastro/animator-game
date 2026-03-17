@@ -81,5 +81,17 @@ class AVL:
             return 1 + _count(node.yes) + _count(node.no)
         return _count(self.root)
 
+    def search(self, name: str):
+        def _search(node):
+            if node is None:
+                return None
+            if node.answer == name or node.question == name:
+                return node
+            resultado = _search(node.yes)
+            if resultado:
+                return resultado
+            return _search(node.no)
+        return _search(self.root)
+
     def __repr__(self):
         return f"AVL(root={self.root}, height={self._height(self.root)})"
