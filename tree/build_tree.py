@@ -34,6 +34,7 @@ def _montar_caminho(row):
 
 def build_tree(csv_path: str) -> AVL:
     avl = AVL()
+    total = 0
 
     with open(csv_path, newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
@@ -44,6 +45,7 @@ def build_tree(csv_path: str) -> AVL:
 
             if not caminho:
                 avl.insert(folha)
+                total += 1
                 continue
 
             no_atual = folha
@@ -53,6 +55,12 @@ def build_tree(csv_path: str) -> AVL:
                 no_atual = no_pergunta
 
             avl.insert(no_atual)
+            total += 1
+
+    if total == 0:
+        print("Aviso: nenhum animal carregado. Verifique o zoo.csv.")
+    else:
+        print(f"{total} animais carregados na árvore.")
 
     return avl
 
