@@ -13,7 +13,6 @@
 
 ![Python](https://img.shields.io/badge/python-3.8+-4a7060?style=flat&logo=python&logoColor=white)
 ![HTML](https://img.shields.io/badge/frontend-html%2Fjs-8faa90?style=flat)
-![Status](https://img.shields.io/badge/status-em%20desenvolvimento-a8c4a0?style=flat)
 
 <br>
 
