@@ -1,5 +1,5 @@
 animal_name,hair,feathers,eggs,milk,airborne,aquatic,predator,toothed,backbone,breathes,venomous,fins,tem_pernas,tail,domestic,catsize
-Cavalo,1,0,0,1,0,0,0,1,1,1,0,0,1,1,1,1
+Cavalo,1,0,0,1,0,0,0,1,1,1,0,0,1,1,1,0
 Gato,1,0,0,1,0,0,1,1,1,1,0,0,1,1,1,0
 Cachorro,1,0,0,1,0,0,1,1,1,1,0,0,1,1,1,1
 Tubarão,0,0,1,0,0,1,1,1,1,0,0,1,0,1,0,1
