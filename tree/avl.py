@@ -71,5 +71,15 @@ class AVL:
     def get_root(self):
         return self.root
 
+    def get_height(self):
+        return self._height(self.root)
+
+    def count_nodes(self):
+        def _count(node):
+            if node is None:
+                return 0
+            return 1 + _count(node.yes) + _count(node.no)
+        return _count(self.root)
+
     def __repr__(self):
         return f"AVL(root={self.root}, height={self._height(self.root)})"
